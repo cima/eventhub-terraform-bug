@@ -2,6 +2,8 @@
 
 set -e
 
+source init_credentials.sh
+
 # AZURE_AD_B2B_CLIENT_ID -- service principal ID to be used for login and further command execution
 # AZURE_AD_B2B_CLIENT_SECRET -- password for above service principal
 # AZURE_AD_B2B_TENANT_ID -- tennant ID of home Azure Actice Directory where above identity is maintained
