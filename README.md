@@ -1,0 +1,3 @@
+eventhub-terraform-bug
+
+Every new eventhub of _Standard_ tier has Kafka api enabled. The kafka API flag in terraform is optional and it's default value is false. See in [eventhub_namespace.html](https://www.terraform.io/docs/providers/azurerm/r/eventhub_namespace.html#kafka_enabled). Creation of _Standard_ tier eventhub namespace without this flag specified creates namespace with Kafka API enabled. Subsequent terraform execution detects disparity between desired *kafka_enabled* and actual *kafka_enabled* values and decides to recreate the resource. This kind of recreation forces new resource and thus deleting the current one. This might cause data loss and configuaration invalidation for consumers and producers.
